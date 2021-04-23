@@ -5,31 +5,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Your Knowledge: How much do youabout the Hungry Hungry Hippos of Hacienda Napoles?/title>
+    <title>Test Your Knowledge: Hungry Hungry Hippos of Hacienda Napoles</title>
+
     <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
 </head>
 
-<body>
-    <header>
-        <h1>Code Quiz</h1>
-    </header>
-    <main>
-        <section>
+<header>
+    <h1>Test Your Knowledge: Hungry Hungry Hippos of Hacienda Napoles</h1>
+</header>
 
+<body>
 <!-- A <div> to hold the quiz -->
-    <div id="question"></div>
-    <div id="choices">
-       
+    <div>
+        <a href="highscores.html">Show High Scores</a>
+        <br><br>
+
+        <div id="question">
+            <span id="question-title">"what color is the sun"</span>
+            <div id="choices"></div>
+        </div>
+    </div>
+    <br><br>
+<!-- A <button> to start the quiz -->
+    <button id="start">Start Quiz</button>
     </div>
     <div id="results"></div>
-<!-- A <button> to submit the quiz -->
-    <button id="submit">Submit Quiz</button>
-<!-- A <div> to display the results -->
-    <!-- <div id="results"></div> -->
 
-        </section>
-    </main>
+<!-- A <div> to display the results -->
+    <script src="assets/js/questions.js"></script>
     <script src="assets/js/script.js"></script>
 </body>
-
 </html>

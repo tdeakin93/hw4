@@ -10,6 +10,73 @@
 //WHEN the game is over
 //THEN I can save my initials and my score
 
+//FROM CLASS 4/20//
+//define variables///////////////////////////////////////////////////////////////////////////
+//keep variables at tippy top//
+let startBtn = document.getElementById('start');
+let saveScore = document.getElementById('save-score');
+let questionTitle = document.getElementById("question-title");
+let choicesDiv = document.getElementById("choices");
+let questionIndex = [0];
+
+
+// functions//////////////////////////////////////////
+//start quick - init
+function startQuiz() {
+  //start time - doesn't need to be a function btw
+  // find dom element to show the quesion 
+  getQuestion();
+
+  // find an area on your html and show the first question there
+}
+
+//get the next question
+function getQuestion() {
+  //get the current question
+  let currentQuestion = questions[questionIndex];
+  // show the question
+  questionTitle.textContent = currentQuestion.title;
+  // loop show the choices(buttons)
+  currentQuestion.choices.forEach(choice => {
+    let choiceButton = document.createElement("button");
+    choiceButton.textContent = choice;
+    choiceButton.setAttribute("value", choice);
+  //add event listener for each button created - loop through choices - inside of thefunction bc it's less work
+    choiceButton.onclick = answerCheck();
+    choicesDiv.appendChild(choiceButton);
+  })
+
+    //this event listener calls 
+  //answerCheck();
+}
+
+//check user selection
+function answerCheck() {
+  alert(this.value);
+  //check the user selection against correct answer
+  //incorrect answer remove seconds
+  //set score - time? 
+  //get next question
+  getQuestion();
+    //if questions.length
+  endGame();
+}
+
+//end game
+function endGame() {
+  //set their score
+  //show end screen
+  //clear out timer
+}
+
+//save high score
+function saveHighScore() {
+  //prompt for initials
+  //save that to variable
+  //if empty, we don't do anyhting 
+  //save score to local storage
+}
+
 // See mini project for start point
 
 //function buildQuiz() {}
@@ -29,87 +96,7 @@
 
 //1. setting up the game
 var index = 0;
-var myQuestions = [
-  {
-    question: "From which continent do Hippopotamuses originate?",
-    answers: {
-      a: "South America",
-      b: "Africa",
-      c: "Australia",
-    },
-    correctAnswer: "Africa",
-  },
-  // update answers to reflect actual answer, not a b or c
-  {
-    question:
-      "Which cartel kingpin introduced hippos into Columbia as part of his personal zoo?",
-    answers: {
-      a: "Pablo Escobar",
-      b: "El Chapo",
-      c: "Griselda Blanco",
-    },
-    correctAnswer: "Pablo Escobar",
-  },
-  {
-    question:
-      "What started as 1 male and 3 female hippos in the 1970s have now become the largest herd (called a bloat) outside of Africa. How many hippos are there estimated to be in Columbia today?",
-    answers: {
-      a: "10-20",
-      b: "50-75",
-      c: "90-120",
-    },
-    correctAnswer: "90-120",
-  },
-  {
-    question:
-      "If the Columbian government doesn’t address the “cocaine hippo problem”, how many hippos do scientists estimate will be in the country by 2034?",
-    answers: {
-      a: "500",
-      b: "1,000",
-      c: "1,400",
-    },
-    correctAnswer: "1,400",
-  },
-  {
-    question:
-      "As a management plan, the Columbian government has considered relocation, castration, and extermination, all of which can be very expensive and/or very sad. About how much does it cost to castrate a single hippo?",
-    answers: {
-      a: "$10,000",
-      b: "$20,000",
-      c: "$50,000",
-    },
-    correctAnswer: "$50,000",
-  },
-  {
-    question:
-      "How many hippos would need to be castrated/sterilized each year in Columbia to prevent further population growth?",
-    answers: {
-      a: "10 (aka $500,000/yr)",
-      b: "30 (aka ($1.5 mil/yr)",
-      c: "60 (aka $3 mil/yr)",
-    },
-    correctAnswer: "30 (aka ($1.5 mil/yr)",
-  },
-  {
-    question:
-      "Hippos are one of the deadliest land-mammals on Earth. About how many human deaths are hippos responsible for annually?",
-    answers: {
-      a: "250",
-      b: "500",
-      c: "1,000",
-    },
-    correctAnswer: "500",
-  },
-  {
-    question: "How big was the largest hippo ever recorded?",
-    answers: {
-      a: "6,000 lbs.",
-      b: "8,000 lbs.",
-      c: "10,000 lbs.",
-    },
-    correctAnswer: "10,000 lbs.",
-  },
-];
+
 
 //start fx display instruction and startbn
 
@@ -187,4 +174,21 @@ function renderCard() {
 
 //function seeallscore
 
+
+
+
+
+
+
+
+
+
+
+
 renderCard();
+//event listeners///////////////////////////////
+//start button click
+startBtn.addEventListener('click', startQuiz);
+
+// save high score 
+saveScore.addEventListener("click", saveHighScore)
