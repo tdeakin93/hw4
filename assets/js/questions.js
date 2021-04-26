@@ -11,12 +11,12 @@ let myQuestions = [
     question: "Which cartel kingpin introduced hippos into Columbia as part of his personal zoo?",
     answers: ["Pablo Escobar", "El Chapo", "Griselda Blanco"],
     correctAnswer: "Pablo Escobar",   
-    }
+    },
   {
     question: "What started as 1 male and 3 female hippos in the 1970s have now become the largest herd (called a bloat) outside of Africa. How many hippos are there estimated to be in Columbia today?",
     answers: ["10-20", "50-75", "90-120"],
     correctAnswer: "90-120",
-    }
+    },
   {
     question:"If the Columbian government doesn’t address the “cocaine hippo problem”, how many hippos do scientists estimate will be in the country by 2034?",
     answers: ["500","1,000","1,400",],
