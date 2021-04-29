@@ -12,13 +12,13 @@
 
 //define variables///////////////////////////////////////////////////////////////////////////
 //keep variables at tippy top//
-let startBtn = document.getElementById('start');
-let saveScore = document.getElementById('save-score');
-let question = document.getElementById('question');
+let startBtn = document.getElementById("start");
+let saveScore = document.getElementById("save-score");
+let question = document.getElementById("question");
 let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
 let questionIndex = [0];
-let timerElement = document.querySelector('#hourglass');
+let timerElement = document.querySelector("#hourglass");
 let hourglass;
 let hourglassInterval;
 
@@ -27,7 +27,7 @@ let hourglassInterval;
 function startQuiz() {
   //start time - doesn't need to be a function btw
   startTimer();
-  // find dom element to show the quesion 
+  // find dom element to show the quesion
   getQuestion();
   // find an area on your html and show the first question there
 }
@@ -39,10 +39,10 @@ function startTimer() {
     timerElement.textContent = hourglassInterval;
     if (hourglassInterval >= 0) {
       // Tests if win condition is met
-    if (isWin && hourglassInterval > 0) {
+      if (isWin && hourglassInterval > 0) {
         // Clears interval and stops timer
-      clearInterval(hourglass);
-      winGame();
+        clearInterval(hourglass);
+        winGame();
       }
     }
     // Tests if time has run out
@@ -53,8 +53,6 @@ function startTimer() {
     }
   }, 1000);
 }
-
-
 
 //get the next question
 function getQuestion() {
@@ -68,7 +66,8 @@ function getQuestion() {
     choiceButton.textContent = answers;
     //choiceButton.setAttribute("value", answers);
     //add event listener for each button created - loop through choices - inside of thefunction bc it's less work
-    choiceButton.onclick = checkAns();
+    choiceButton.onclick = getQuestion();
+    //choiceButton.onclick = checkAns();
     choicesDiv.appendChild(choiceButton);
   });
   //this event listener calls
@@ -94,16 +93,13 @@ function checkAns() {
     hourglassInterval -= 10;
   }
 }
-  //incorrect answer remove seconds
-  //set score - time? 
-  //get next question
-  //if questions.length
-
-
+//incorrect answer remove seconds
+//set score - time?
+//get next question
+//if questions.length
 
 //end game
 function endGame() {
-  
   //set their score
   //show end screen
   //clear out timer
@@ -113,13 +109,13 @@ function endGame() {
 function saveHighScore() {
   //prompt for initials
   //save that to variable
-  //if empty, we don't do anyhting 
+  //if empty, we don't do anyhting
   //save score to local storage
 }
 
 //event listeners///////////////////////////////
 //start button click
-startBtn.addEventListener('click', startQuiz);
+startBtn.addEventListener("click", startQuiz);
 
-// save high score 
+// save high score
 //saveScore.addEventListener("click", saveHighScore)
