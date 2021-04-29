@@ -60,14 +60,15 @@ function getQuestion() {
   let currentQuestion = myQuestions[questionIndex];
   // show the question
   questionTitle.textContent = currentQuestion.title;
+  currentQuestion.onclick = getQuestion();
   // loop show the answers(buttons)
   currentQuestion.answers.forEach((answers) => {
     let choiceButton = document.createElement("button");
     choiceButton.textContent = answers;
     //choiceButton.setAttribute("value", answers);
     //add event listener for each button created - loop through choices - inside of thefunction bc it's less work
-    choiceButton.onclick = getQuestion();
-    //choiceButton.onclick = checkAns();
+    //choiceButton.onclick = getQuestion();
+    choiceButton.onclick = checkAns();
     choicesDiv.appendChild(choiceButton);
   });
   //this event listener calls
