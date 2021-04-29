@@ -18,7 +18,8 @@ let question = document.getElementById('question');
 let questionTitle = document.getElementById("question-title");
 let choicesDiv = document.getElementById("choices");
 let questionIndex = [0];
-let timeEl = document.querySelector('#hourglass');
+let timerElement = document.querySelector('#hourglass');
+let hourglass;
 let hourglassInterval;
 
 // functions//////////////////////////////////////////
@@ -34,20 +35,20 @@ function startQuiz() {
 function startTimer() {
   // Sets timer
   hourglassInterval = setInterval(function () {
-    secondsLeft--;
-    timerElement.textContent = secondsLeft;
-    if (secondsLeft >= 0) {
+    hourglassInterval--;
+    timerElement.textContent = hourglassInterval;
+    if (hourglassInterval >= 0) {
       // Tests if win condition is met
-    if (isWin && secondsLeft > 0) {
+    if (isWin && hourglassInterval > 0) {
         // Clears interval and stops timer
-      clearInterval(hourglassInterval);
+      clearInterval(hourglass);
       winGame();
       }
     }
     // Tests if time has run out
-    if (secondsLeft === 0) {
+    if (hourglassInterval === 0) {
       // Clears interval
-      clearInterval(timer);
+      clearInterval(hourglass);
       loseGame();
     }
   }, 1000);
@@ -65,7 +66,7 @@ function getQuestion() {
   currentQuestion.answers.forEach((answers) => {
     let choiceButton = document.createElement("button");
     choiceButton.textContent = answers;
-    choiceButton.setAttribute("value", answers);
+    //choiceButton.setAttribute("value", answers);
     //add event listener for each button created - loop through choices - inside of thefunction bc it's less work
     choiceButton.onclick = checkAns();
     choicesDiv.appendChild(choiceButton);
@@ -90,7 +91,7 @@ function checkAns() {
   } else {
     alert("incorrect");
     // document.getElementById("wrong").style.display = "block";
-    secondsLeft -= 10;
+    hourglassInterval -= 10;
   }
 }
   //incorrect answer remove seconds
